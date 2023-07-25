@@ -24,8 +24,8 @@ runs:
       shell: bash
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r "${{ github.action_path }}/requirements.txt"
 
     - name: Run Python script
       shell: bash
-      run: python my_script.py --message "${{ inputs.message }}"
+      run: python "${{ github.action_path }}/action.py" --message "${{ inputs.message }}"
